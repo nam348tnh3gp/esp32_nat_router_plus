@@ -15,7 +15,7 @@ jobs:
       uses: actions/checkout@v4
       with:
         submodules: 'recursive'
-    
+        
     - name: Setup Python 3.11
       uses: actions/setup-python@v5
       with:
@@ -31,10 +31,10 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install --upgrade platformio
-    
-    - name: Build firmware
+        
+    - name: Build firmware (auto-copy headers)
       run: pio run
-    
+        
     - name: Upload firmware
       uses: actions/upload-artifact@v4
       with:
